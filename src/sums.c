@@ -16,10 +16,10 @@ static void update_time(struct tm* tick_time) {
     text_layer_set_text(s_hour_layer, s_hour_buffer);
 
     static char s_minute_buffer[8];
-    strftime(s_minute_buffer,
+    snprintf(s_minute_buffer,
              sizeof(s_minute_buffer),
-             "%M",
-             tick_time);
+             "%d",
+             tick_time->tm_min);
     text_layer_set_text(s_minute_layer, s_minute_buffer);
 
     static char s_total_buffer[8];
