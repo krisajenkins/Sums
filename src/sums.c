@@ -12,16 +12,14 @@ static void update_time(struct tm* tick_time) {
     strftime(s_hour_buffer,
              sizeof(s_hour_buffer),
              clock_is_24h_style() ? "%H" : "%I",
-             tick_time
-             );
+             tick_time);
     text_layer_set_text(s_hour_layer, s_hour_buffer);
 
     static char s_minute_buffer[8];
     strftime(s_minute_buffer,
              sizeof(s_minute_buffer),
-             "+ %M",
-             tick_time
-             );
+             "%M",
+             tick_time);
     text_layer_set_text(s_minute_layer, s_minute_buffer);
 
     static char s_total_buffer[8];
@@ -30,8 +28,7 @@ static void update_time(struct tm* tick_time) {
     snprintf(s_total_buffer,
             sizeof(s_total_buffer),
             "%d",
-            total
-            );
+            total);
     text_layer_set_text(s_total_layer, s_total_buffer);
 }
 
