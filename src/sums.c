@@ -54,9 +54,12 @@ static TextLayer* configured_text_layer(GRect bounds) {
 static void lines_update_proc(Layer *layer, GContext *ctx) {
     GRect bounds = layer_get_bounds(layer);
     graphics_context_set_fill_color(ctx, GColorBlack);
-    graphics_fill_rect(ctx, GRect(10,  95, bounds.size.w - 20, 5), 0, GCornerNone);
-    graphics_fill_rect(ctx, GRect(10, 150, bounds.size.w - 20, 5), 0, GCornerNone);
 
+    // Lines.
+    graphics_fill_rect(ctx, GRect(10,  95, bounds.size.w - 20, 6), 3, GCornersAll);
+    graphics_fill_rect(ctx, GRect(10, 148, bounds.size.w - 20, 6), 3, GCornersAll);
+
+    // Plus.
     graphics_fill_rect(ctx, GRect(20, 70, 20, 4), 0, GCornerNone);
     graphics_fill_rect(ctx, GRect(28, 62, 4, 20), 0, GCornerNone);
 }
