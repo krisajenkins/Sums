@@ -18,7 +18,10 @@ static void update_time(struct tm *tick_time) {
   text_layer_set_text(s_minute_layer, s_minute_buffer);
 
   static char s_total_buffer[8];
-  int total = tick_time->tm_hour + tick_time->tm_min;
+  int hour = clock_is_24h_style() ? tick_time->tm_hour
+                                  : tick_time->tm_hour % 12;
+  int minute = tick_time->tm_min;
+  int total = hour + minute;
 
   snprintf(s_total_buffer, sizeof(s_total_buffer), "%d", total);
   text_layer_set_text(s_total_layer, s_total_buffer);
